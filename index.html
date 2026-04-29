@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureVote | Digital Voting Portal</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Landing Screen -->
+        <section id="landing-screen" class="screen active">
+            <div class="glass-card main-hero">
+                <div class="badge">SECURE PORTAL</div>
+                <h1>National Voting System</h1>
+                <p>Welcome to the secure digital voting portal. Your identity will be verified via biometric face scan before you can proceed to cast your vote.</p>
+                <div class="features">
+                    <div class="feature">
+                        <span class="icon">🛡️</span>
+                        <span>End-to-End Encrypted</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">👤</span>
+                        <span>Biometric Verification</span>
+                    </div>
+                </div>
+                <button id="start-btn" class="primary-btn">Begin Verification</button>
+            </div>
+        </section>
+
+        <!-- Face Scan Screen -->
+        <section id="scan-screen" class="screen">
+            <div class="glass-card scan-container">
+                <h2>Face Verification</h2>
+                <p>Please look directly into the camera and ensure your face is well-lit.</p>
+                
+                <div class="camera-preview">
+                    <video id="webcam" autoplay playsinline></video>
+                    <div class="scan-overlay">
+                        <div class="scan-line"></div>
+                        <div class="face-corners"></div>
+                    </div>
+                    <div id="scan-status" class="status-indicator">Initializing Camera...</div>
+                </div>
+
+                <div class="action-footer">
+                    <button id="verify-btn" class="primary-btn" disabled>Verify Identity</button>
+                    <p class="hint">Verification takes approximately 3-5 seconds</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voting Screen -->
+        <section id="voting-screen" class="screen">
+            <header class="app-header">
+                <div class="voter-info">
+                    <span class="dot active"></span>
+                    <span>Verified Citizen</span>
+                </div>
+                <div class="timer">04:59</div>
+            </header>
+            
+            <div class="voting-header">
+                <h2>Cast Your Vote</h2>
+                <p>Select your preferred candidate. You can only vote once.</p>
+            </div>
+
+            <div class="candidates-grid">
+                <!-- Candidate cards will be injected here -->
+            </div>
+
+            <div class="voting-actions">
+                <button id="submit-vote-btn" class="primary-btn" disabled>Confirm & Submit Vote</button>
+            </div>
+        </section>
+
+        <!-- Success Screen -->
+        <section id="success-screen" class="screen">
+            <div class="glass-card success-container">
+                <div class="success-icon">
+                    <div class="checkmark"></div>
+                </div>
+                <h1>Vote Registered!</h1>
+                <p>Thank you for participating in the democratic process. Your vote has been securely recorded and encrypted.</p>
+                <div class="receipt-card">
+                    <div class="receipt-row">
+                        <span>Receipt ID</span>
+                        <code id="receipt-id">SV-8271-X92L</code>
+                    </div>
+                    <div class="receipt-row">
+                        <span>Timestamp</span>
+                        <span id="timestamp">2026-04-29 08:15:22</span>
+                    </div>
+                </div>
+                <button onclick="window.location.reload()" class="secondary-btn">Close Session</button>
+            </div>
+        </section>
+    </div>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
